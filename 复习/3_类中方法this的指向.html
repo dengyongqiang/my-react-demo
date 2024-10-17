@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3_类中方法this的指向</title>
+</head>
+<body>
+<script>
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        study() {
+            //方法在Person类的原型对象上，供实例使用，this是调用实例
+            //类中定义的方法，已经在局部开启了严格模式
+            console.log(this)
+        }
+    }
+
+    const p1 = new Person('tom', 18);
+    p1.study(); //通过实例调用study方法
+    const x = p1.study;
+</script>
+</body>
+</html>

@@ -38,12 +38,16 @@
 
         speak() {
             console.log(`我叫${this.name}，我的年龄${this.age}，我读的是${this.grade}年级`);
+            this.study();
         }
 
         study() {
             console.log(`我很努力的学习`);
         }
     }
+
+    const stu = new Student('tom',18,'高一');
+    stu.speak();
 </script>
 <body>
 

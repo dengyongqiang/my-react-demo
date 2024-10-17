@@ -21,25 +21,33 @@
             super(props);
             //初始化状态
             this.state = {
-                isHot: true,
+                isHot: false,
             };
+            //解决changeWeather中this指向问题
+            this.changeWeather = this.changeWeather.bind(this);
         }
 
         render() {
             //读取状态并进行渲染
             const {isHot} = this.state;
             return (
-                <h1 onClick={demo}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+                //changeWeather为实例方法，只能被实例所调用
+                <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
             );
+        }
+
+        changeWeather() {
+            //changeWeather放在了哪里？——Weather的原型对象上，供实例使用
+            //由于changeWeather是作为onClick的回调，所以不是通过实例调用的，是直接调用
+            //类中的方法默认开启了局部的严格模式，所以changeWeather中的this就是undefined
+            //通过Weather的实例调用changeWeather时，changeWeather的this就是Weather实例
+            console.log(this);
         }
     }
 
     //2. 渲染组件到页面
     ReactDOM.render(<Weather/>, document.getElementById('test'));
 
-    function demo() {
-        console.log('标题被点击了');
-    }
 
 </script>
 </body>

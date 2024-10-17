@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>state</title>
+</head>
+<body>
+<!--准备容器-->
+<div id="test"></div>
+<!--引入react核心库-->
+<script type="text/javascript" src="../js/react.development.js"></script>
+<!--引入react dom-->
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<!--引入babel-->
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+    //1. 创建组件
+    class Weather extends React.Component {
+
+        constructor(props) {
+            super(props);
+            //初始化状态
+            this.state = {
+                isHot: true,
+            };
+        }
+
+        render() {
+            //读取状态并进行渲染
+            const {isHot} = this.state;
+            return (
+                <h1 onClick={demo}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+            );
+        }
+    }
+
+    //2. 渲染组件到页面
+    ReactDOM.render(<Weather/>, document.getElementById('test'));
+
+    function demo() {
+        console.log('标题被点击了');
+    }
+
+</script>
+</body>
+</html>

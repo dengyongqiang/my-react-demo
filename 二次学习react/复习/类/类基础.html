@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类基础</title>
+</head>
+<body>
+<script type="text/javascript">
+    class Person {
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        speak() {
+            console.log(`我的姓名：${this.name}，我的年龄：${this.age}`);
+        }
+    }
+
+    class Student extends Person {
+        constructor(name, age, grade) {
+            super(name, age);
+            this.grade = grade;
+        }
+
+        speak() {
+            console.log(`我的姓名：${this.name}，我的年龄：${this.age}，我的年级：${this.grade}`);
+        }
+    }
+
+    const p1 = new Person("张三", 19);
+    const p2 = new Person("李四", 20);
+    p1.speak();
+    p2.speak();
+
+    const student = new Student("小明", 10, "一年级")
+    student.speak();
+</script>
+</body>
+</html>

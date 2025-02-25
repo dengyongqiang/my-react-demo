@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复习jsx</title>
+    <style>
+        .title {
+            background-color: orange;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+
+    const data = ['Angular', 'React', 'Vue'];
+
+    function MyApp() {
+        return (
+            <div>
+                <h1>前端js框架列表</h1>
+                <ul>
+                    {data.map((item, index) => {
+                        return <li key={index}>{item}</li>
+                    })}
+                </ul>
+            </div>
+        );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("test"));
+    root.render(<MyApp/>);
+</script>
+</html>

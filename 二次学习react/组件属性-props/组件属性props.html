@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件属性props</title>
+</head>
+<body>
+<div id="test"></div>
+</body>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    class Person extends React.Component {
+        render() {
+            const {name, age, gender} = this.props
+            return (
+                <div>
+                    <ul>
+                        <li>姓名：{name}</li>
+                        <li>年龄：{age}</li>
+                        <li>性别：{gender}</li>
+                    </ul>
+                </div>
+            )
+        }
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById("test"));
+    root.render(<Person name="Tom" age="18" gender="女"/>)
+</script>
+</html>

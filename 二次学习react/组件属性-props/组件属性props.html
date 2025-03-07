@@ -27,6 +27,7 @@
     }
 
     const root = ReactDOM.createRoot(document.getElementById("test"));
-    root.render(<Person name="Tom" age="18" gender="女"/>)
+    const person = {name: "Tom", age: 18, gender: "女"}
+    root.render(<Person {...person}/>)
 </script>
 </html>
